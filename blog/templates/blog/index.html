@@ -1,0 +1,31 @@
+{% extends 'blog/base_blog.html' %}
+
+        {% block title %}
+            ГЛАВНАЯ | IO-CATALOG
+        {% endblock %}
+
+{% block namepage %}
+    LATEST NEWS
+{% endblock %}
+
+{% block content %}
+    {% for post in posts %}
+
+
+        <div class="card border-0">
+            <div class="shadow-lg p-3 mb-5 bg-white rounded">
+          <div class="card-header bg-transperent " >
+            <h4><b>{{ post.title }}</b></h4>
+          </div>
+          <div class="card-body">
+              <p class="card-text"><em>{{ post.body|truncatewords:15 }}</em></p>
+              <small><q>{{ post.date_pub }}</q></small>
+            <a href="{{ post.get_absolute_url }}" class="btn btn-outline-success offset-md-6">Read</a>
+          </div>
+          </div>
+        </div>
+
+
+    {% endfor %}
+{% endblock %}
+
